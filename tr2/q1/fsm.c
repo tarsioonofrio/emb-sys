@@ -6,94 +6,92 @@ typedef void *(*state_func)();
 
 //int inc0 = 0, inc1 = 0;
 //int inb0 = 0, inb1 = 0;
-int door0 = 0, door1 = 0, first_door = -1;
+unsigned int door[2] = {0};
+unsigned int user[3] = {0};
+
+int first_door = -1;
 int c, req = -1;
+state_func prev_state;
+
 
 int kbhit(void);
 void *idle();
 void *middle();
-void *leave();
+void *door1();
+void *door2();
 
 void *idle(){
-	fprintf(stderr, "Idle user\n\n");
-    door0 = 0;
-    door1 = 0;
+	fprintf(stderr, "Idle. PRESS 1 to try to get into the bank using external door or PRESS 2 to try to get out on the bank using internal door.\n\n");
+    door[0] = 0;
+    door[1] = 0;
+
+    user[0] = 0;
+    user[1] = 0;
+    user[2] = 0;
     first_door = req;
 	if ((req == 1) | (req == 2)) return middle;
 	return idle;
 }
 
 void *middle(){
-    if (first_door == 1) fprintf(stderr, "User went through the outside door\n");
-    else fprintf(stderr, "User went through the inside door\n");
+    fprintf(stderr, "Locked in middle of gates, waiting officer action. Officer PRESS 3 to unlock external door or PRESS 4 to unlock internal door\n\n");
 
-    fprintf(stderr, "Locked in middle of gates, waiting officer action. PRESS 1 to unlock outside door or PRESS 2 to unlock inside door\n\n");
+    door[0] = 1;
+    door[1] = 1;
 
-    door0 = 1;
-    door1 = 1;
-    if (first_door == 1) {
-        if (req == 1) {
-            //fprintf(stderr, "***");
-            return idle;
-        }
-        if (req == 2) return leave;
-    }
-    else if (first_door == 2){
-        if (req == 2) return idle;
-        if (req == 1) return leave;
-    }
+    user[0] = 0;
+    user[1] = 1;
+    user[2] = 0;
+
+    if (req == 3) return door1;
+    if (req == 4) return door2;
 	return middle;
 }
 
-void *returning(){
-    if (first_door == 1) fprintf(stderr, "User came back through the outside door\n\n");
-    else fprintf(stderr, "User came back through the inside door\n\n");
+void *door1(){
+    fprintf(stderr, "User can leave the gate when going through the outside door, PRESS 1 to get into the street.\n\n");
 
-    if (first_door == 1) {
-        door0 = 0;
-        door1 = 1;
-        if (req == 1) return idle;
+    door[0] = 1;
+    door[1] = 0;
+
+    user[0] = 1;
+    user[1] = 0;
+    user[2] = 0;
+
+    if (req == 1) {
+        fprintf(stderr, "User left the gate\n\n");
+        return idle;
     }
-    else if (first_door == 2){
-        door0 = 1;
-        door1 = 2;
-        if (req == 2) return idle;
-    }
-    return returning;
+	return door1;
 }
 
-void *leave(){
-    if (first_door == 1) fprintf(stderr, "User can leave the gate when going through the outside door, press 2\n\n");
-    else fprintf(stderr, "User can leave the gate when going through the inner door, press 1\n\n");
+void *door2(){
+    fprintf(stderr, "User can leave the gate when going through the inner door, PRESS 2 to get enter the bank.\n\n");
 
-    if (first_door == 1) {
-        door0 = 1;
-        door1 = 0;
-        if (req == 2) {
-            fprintf(stderr, "User left the gate\n\n");
-            return idle;
-        }
+    door[0] = 0;
+    door[1] = 1;
+
+    user[0] = 0;
+    user[1] = 0;
+    user[2] = 1;
+
+    if (req == 2) {
+        fprintf(stderr, "User left the gate\n\n");
+        return idle;
     }
-    else if (first_door == 2){
-        door0 = 0;
-        door1 = 1;
-        if (req == 1) {
-            fprintf(stderr, "User left the gate\n\n");
-            return idle;
-        }
-    }
-	return leave;
+    return door2;
 }
-
 int main(){
 	state_func curr_state = idle;
 
 	while(1){
 		curr_state = (state_func)(*curr_state)();
-		fprintf(stderr, "Locked door: Inside %d, Outside %d\n", door0, door1);
+		//fprintf(stderr, "Locked door: Inside %d, Outside %d\n", door[0], door[1]);
+        fprintf(stderr, "Place\tUser\tDoor1\tUser\tDoor2\tUser\tPlace\n");
+        fprintf(stderr, "Street\t%d\t%d\t%d\t%d\t%d\tBank\n", user[0], door[0], user[1], door[1], user[2]);
+        fprintf(stderr, "\n");
 		sleep(1);
 		req = -1;
-        //if (kbhit() && !up_act && !down_act){
 		if (kbhit()){
 			c = getchar();
 			if (c >= '0' && c <= '9')

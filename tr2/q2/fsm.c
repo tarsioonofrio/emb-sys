@@ -72,7 +72,7 @@ void *open(){
     fprintf(stderr, "Open door %d\n\n", req -1);
 
     door[open_door] = !door[open_door];
-    
+
     return prev_state;
 }
 
@@ -90,7 +90,6 @@ int main(){
         fprintf(stderr, "\n\n");
 		sleep(1);
 		req = -1;
-        //if (kbhit() && !up_act && !down_act){
 		if (kbhit()){
 			c = getchar();
 			if (c >= '0' && c <= '9') {
