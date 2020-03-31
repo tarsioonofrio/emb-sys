@@ -6,9 +6,9 @@ typedef void *(*state_func)();
 
 //int inc0 = 0, inc1 = 0;
 //int inb0 = 0, inb1 = 0;
-int door[4] = {0};
+unsigned int door[4] = {0};
 int speed = 0, lock_back_door = 0;
-int c, req = -1;
+int c, req = -1, open_door = 0;
 state_func prev_state;
 
 
@@ -20,17 +20,19 @@ void *all();
 
 
 void *idle(){
-	fprintf(stderr, "Idle\n\n");
+	fprintf(stderr, "Idle. Doors can be opened \n\n");
 
     prev_state = idle;
-    //door[0] = 0;
-    //door[1] = 0;
-    //door[2] = 0;
-    //door[3] = 0;
+
+    fprintf(stderr, "lock_back_door % d\n\n", lock_back_door);
+    fprintf(stderr, "req % d\n\n", req);
 
     if (lock_back_door == 1) return back;
 	if (speed >= 30) return all;
-    if ((req >= 1) & (req <= 4)) return open;
+    if ((req >= 1) & (req <= 4)) {
+        open_door = req -1;
+        return open;
+    }
 
 	return idle;
 }
@@ -39,10 +41,11 @@ void *back(){
     fprintf(stderr, "Back doors locked\n");
 
     prev_state = back;
-    //door[2] = 1;
-    //door[3] = 1;
 
-    if ((req == 1) | (req == 2)) return open;
+    if ((req == 1) | (req == 2)) {
+        open_door = req - 1;
+        return open;
+    }
     if (lock_back_door == 0){
         return idle;
     }
@@ -53,12 +56,9 @@ void *back(){
 
 void *all(){
     fprintf(stderr, "All doors locked\n");
+
     prev_state = all;
 
-    //door[0] = 1;
-    //door[1] = 1;
-    //door[2] = 1;
-    //door[3] = 1;
 
     if (speed < 30)
     {
@@ -69,8 +69,10 @@ void *all(){
 
 
 void *open(){
-    fprintf(stderr, "Open door %d\n\n", door[req -1]);
-    door[req - 1] = ~door[req - 1];
+    fprintf(stderr, "Open door %d\n\n", req -1);
+
+    door[open_door] = !door[open_door];
+    
     return prev_state;
 }
 
@@ -93,7 +95,7 @@ int main(){
 			c = getchar();
 			if (c >= '0' && c <= '9') {
                 req = c - 48;
-                if (req == 6) ~lock_back_door;
+                if (req == 6) lock_back_door = !lock_back_door;
                 if (req == 7)
                     speed++;
                 if (req == 8)
@@ -102,6 +104,7 @@ int main(){
                     speed = speed + 5;
                 if (req == 0)
                     speed = speed - 5;
+
             }
 		}
 
