@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 typedef void *(*state_func)();
 
@@ -9,27 +10,28 @@ unsigned int door[4] = {0};
 int c, req = -1;
 int speed = 0, roll=0;
 int button = 0;
-clock_t start_t, end_t, total_t;
+clock_t start_t;
+double total_time = 0;
 //state_func prev_state;
-
+char string_state[256];
 
 int kbhit(void);
 void *idle();
-void *active();
+void *activate();
 void *wait();
 void *eval();
 void *eject();
 
 
 void *idle(){
-    fprintf(stderr, "Idle. Doors can be opened\n");
+    sprintf(string_state, "%s", "Idle. Ejection system not activated.");
 
-    if (button == 1) return active;
+    if (button == 1) return activate;
     return idle;
 }
 
 void *activate(){
-    fprintf(stderr, "Ejection system activated\n");
+    sprintf(string_state, "%s", "Ejection system activated.");
 
     button = 0;
     start_t = clock();
@@ -37,27 +39,45 @@ void *activate(){
 }
 
 void *wait(){
-    fprintf(stderr, "All doors locked\n");
-    end_t = clock();
-    total_t = (double)(end_t - start_t) / CLOCKS_PER_SEC;
+    total_time = (double)(clock() - start_t) / CLOCKS_PER_SEC;
+    sprintf(string_state, "%s %f seconds", "Waiting for button to be pressed again.", total_time);
 
-    if (button == 1) return eval;
+    if ((button == 1) & (total_time <= 1)) {
+        fprintf(stderr, "oi\n");
+        return eval;
+    }
+    if (total_time > 1) {
+        total_time = 0;
+        return idle;
+    }
+
     return wait;
-
 }
 
+void *eval(){
+    sprintf(string_state, "%s", "Evaluation ejection avionic conditions.");
+
+    if ((roll < 60) & (roll > -60))  {
+        return eject;
+    }
+    return activate;
+}
+
+void *eject(){
+    sprintf(string_state, "%s", "Seat ejected.");
+
+    if ((roll > 60) & (roll < -60))  {
+        return eject;
+    }
+    return activate;
+}
 
 int main(){
     state_func curr_state = idle;
 
     while(1){
         curr_state = (state_func)(*curr_state)();
-        fprintf(stderr, "Speed %d Km/h\n", speed);
-        fprintf(stderr, "Opened doors:\n");
-        fprintf(stderr, "\t  R L\n");
-        fprintf(stderr, "\tF %d %d\n", door[0], door[1]);
-        fprintf(stderr, "\tB %d %d\n", door[2], door[3]);
-        fprintf(stderr, "\n\n");
+        fprintf(stderr, "Speed %d Km/h | Roll %d | Warning: %s\n", speed, roll, string_state);
         sleep(1);
         req = -1;
         if (kbhit()){
@@ -66,17 +86,15 @@ int main(){
                 req = c - 48;
                 if (req == 0) button = 1;
                 if (req == 1)
-                    speed = speed + 100;
+                    speed = speed + 10;
                 if (req == 2)
-                    roll = roll - 100;
+                    speed = speed - 10;
                 if (req == 3)
-                    roll = roll + 100;
+                    roll++;
                 if (req == 4)
-                    roll = roll - 100;
-
+                    roll--;
             }
         }
-
     }
     return 0;
 }
