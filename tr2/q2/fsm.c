@@ -96,13 +96,13 @@ int main(){
                 req = c - 48;
                 if (req == 6) lock_back_door = !lock_back_door;
                 if (req == 7)
-                    speed++;
-                if (req == 8)
                     speed--;
+                if (req == 8)
+                    speed++;
                 if (req == 9)
-                    speed = speed + 5;
-                if (req == 0)
                     speed = speed - 5;
+                if (req == 0)
+                    speed = speed + 5;
 
             }
 		}
