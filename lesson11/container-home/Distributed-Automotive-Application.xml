@@ -20,14 +20,6 @@
   </core_unit>
  </core_units>
  <processors>
-  <mono_core_processor id="id_14">
-   <object_type>PROCESSOR_OBJECT_TYPE</object_type>
-   <name>Node6-Bodywork</name>
-   <processor_type>MONOCORE_TYPE</processor_type>
-   <migration_type>NO_MIGRATION_TYPE</migration_type>
-   <core ref="id_1">
-   </core>
-  </mono_core_processor>
   <mono_core_processor id="id_8">
    <object_type>PROCESSOR_OBJECT_TYPE</object_type>
    <name>Node1-Engine-controller</name>
@@ -63,6 +55,14 @@
   <mono_core_processor id="id_13">
    <object_type>PROCESSOR_OBJECT_TYPE</object_type>
    <name>Node5-Suspension-controller</name>
+   <processor_type>MONOCORE_TYPE</processor_type>
+   <migration_type>NO_MIGRATION_TYPE</migration_type>
+   <core ref="id_1">
+   </core>
+  </mono_core_processor>
+  <mono_core_processor id="id_14">
+   <object_type>PROCESSOR_OBJECT_TYPE</object_type>
+   <name>Node6-Bodywork</name>
    <processor_type>MONOCORE_TYPE</processor_type>
    <migration_type>NO_MIGRATION_TYPE</migration_type>
    <core ref="id_1">
@@ -153,7 +153,7 @@
   <address_space id="id_38">
    <object_type>ADDRESS_SPACE_OBJECT_TYPE</object_type>
    <name>Address5-Suspension-controller</name>
-   <cpu_name>Node4-Wheel-angle-sensor</cpu_name>
+   <cpu_name>Node5-Suspension-controller</cpu_name>
    <text_memory_size>0</text_memory_size>
    <stack_memory_size>0</stack_memory_size>
    <data_memory_size>0</data_memory_size>
@@ -173,7 +173,7 @@
   <address_space id="id_39">
    <object_type>ADDRESS_SPACE_OBJECT_TYPE</object_type>
    <name>Address6-Bodywork</name>
-   <cpu_name>Node4-Wheel-angle-sensor</cpu_name>
+   <cpu_name>Node6-Bodywork</cpu_name>
    <text_memory_size>0</text_memory_size>
    <stack_memory_size>0</stack_memory_size>
    <data_memory_size>0</data_memory_size>
@@ -192,166 +192,6 @@
   </address_space>
  </address_spaces>
  <tasks>
-  <periodic_task id="id_58">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t09</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node2-Automatic-gear-box</cpu_name>
-   <address_space_name>Address2-Automatic-gear-box</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>50</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_57">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t08</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node2-Automatic-gear-box</cpu_name>
-   <address_space_name>Address2-Automatic-gear-box</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>15</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_56">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t07</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node1-Engine-controller</cpu_name>
-   <address_space_name>Address1-Engine-controller</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>40</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_55">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t06</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node1-Engine-controller</cpu_name>
-   <address_space_name>Address1-Engine-controller</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>50</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_54">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t05</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node1-Engine-controller</cpu_name>
-   <address_space_name>Address1-Engine-controller</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>14</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_53">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t04</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node1-Engine-controller</cpu_name>
-   <address_space_name>Address1-Engine-controller</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>15</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_52">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t03</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node1-Engine-controller</cpu_name>
-   <address_space_name>Address1-Engine-controller</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>100</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
-  <periodic_task id="id_51">
-   <object_type>TASK_OBJECT_TYPE</object_type>
-   <name>t02</name>
-   <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node1-Engine-controller</cpu_name>
-   <address_space_name>Address1-Engine-controller</address_space_name>
-   <capacity>2</capacity>
-   <deadline>0</deadline>
-   <start_time>0</start_time>
-   <priority>1</priority>
-   <blocking_time>0</blocking_time>
-   <policy>SCHED_FIFO</policy>
-   <text_memory_size>0</text_memory_size>
-   <stack_memory_size>0</stack_memory_size>
-   <criticality>0</criticality>
-   <context_switch_overhead>0</context_switch_overhead>
-   <period>20</period>
-   <jitter>0</jitter>
-   <every>0</every>
-  </periodic_task>
   <periodic_task id="id_50">
    <object_type>TASK_OBJECT_TYPE</object_type>
    <name>t01</name>
@@ -359,7 +199,7 @@
    <cpu_name>Node1-Engine-controller</cpu_name>
    <address_space_name>Address1-Engine-controller</address_space_name>
    <capacity>2</capacity>
-   <deadline>0</deadline>
+   <deadline>10</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
@@ -372,6 +212,166 @@
    <jitter>0</jitter>
    <every>0</every>
   </periodic_task>
+  <periodic_task id="id_51">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t02</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node1-Engine-controller</cpu_name>
+   <address_space_name>Address1-Engine-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>20</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>20</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_52">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t03</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node1-Engine-controller</cpu_name>
+   <address_space_name>Address1-Engine-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>100</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>100</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_53">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t04</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node1-Engine-controller</cpu_name>
+   <address_space_name>Address1-Engine-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>15</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>15</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_54">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t05</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node1-Engine-controller</cpu_name>
+   <address_space_name>Address1-Engine-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>14</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>14</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_55">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t06</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node1-Engine-controller</cpu_name>
+   <address_space_name>Address1-Engine-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>50</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>50</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_56">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t07</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node1-Engine-controller</cpu_name>
+   <address_space_name>Address1-Engine-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>40</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>40</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_57">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t08</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node2-Automatic-gear-box</cpu_name>
+   <address_space_name>Address2-Automatic-gear-box</address_space_name>
+   <capacity>2</capacity>
+   <deadline>15</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>15</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_58">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t09</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node2-Automatic-gear-box</cpu_name>
+   <address_space_name>Address2-Automatic-gear-box</address_space_name>
+   <capacity>2</capacity>
+   <deadline>50</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>50</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
   <periodic_task id="id_60">
    <object_type>TASK_OBJECT_TYPE</object_type>
    <name>t10</name>
@@ -379,7 +379,7 @@
    <cpu_name>Node2-Automatic-gear-box</cpu_name>
    <address_space_name>Address2-Automatic-gear-box</address_space_name>
    <capacity>2</capacity>
-   <deadline>0</deadline>
+   <deadline>50</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
@@ -399,7 +399,7 @@
    <cpu_name>Node2-Automatic-gear-box</cpu_name>
    <address_space_name>Address2-Automatic-gear-box</address_space_name>
    <capacity>2</capacity>
-   <deadline>0</deadline>
+   <deadline>14</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
@@ -416,10 +416,10 @@
    <object_type>TASK_OBJECT_TYPE</object_type>
    <name>t12</name>
    <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node2-Automatic-gear-box</cpu_name>
-   <address_space_name>Address2-Automatic-gear-box</address_space_name>
+   <cpu_name>Node3-Anti-locking-brake-system</cpu_name>
+   <address_space_name>Address3-Anti-locking-brake-system</address_space_name>
    <capacity>1</capacity>
-   <deadline>0</deadline>
+   <deadline>20</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
@@ -436,10 +436,10 @@
    <object_type>TASK_OBJECT_TYPE</object_type>
    <name>t13</name>
    <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node2-Automatic-gear-box</cpu_name>
-   <address_space_name>Address2-Automatic-gear-box</address_space_name>
+   <cpu_name>Node3-Anti-locking-brake-system</cpu_name>
+   <address_space_name>Address3-Anti-locking-brake-system</address_space_name>
    <capacity>2</capacity>
-   <deadline>0</deadline>
+   <deadline>40</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
@@ -456,10 +456,10 @@
    <object_type>TASK_OBJECT_TYPE</object_type>
    <name>t14</name>
    <task_type>PERIODIC_TYPE</task_type>
-   <cpu_name>Node2-Automatic-gear-box</cpu_name>
-   <address_space_name>Address2-Automatic-gear-box</address_space_name>
+   <cpu_name>Node3-Anti-locking-brake-system</cpu_name>
+   <address_space_name>Address3-Anti-locking-brake-system</address_space_name>
    <capacity>1</capacity>
-   <deadline>0</deadline>
+   <deadline>15</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
@@ -472,6 +472,554 @@
    <jitter>0</jitter>
    <every>0</every>
   </periodic_task>
+  <periodic_task id="id_65">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t15</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node3-Anti-locking-brake-system</cpu_name>
+   <address_space_name>Address3-Anti-locking-brake-system</address_space_name>
+   <capacity>2</capacity>
+   <deadline>100</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>100</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_66">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t16</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node3-Anti-locking-brake-system</cpu_name>
+   <address_space_name>Address3-Anti-locking-brake-system</address_space_name>
+   <capacity>1</capacity>
+   <deadline>20</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>20</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_67">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t17</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node3-Anti-locking-brake-system</cpu_name>
+   <address_space_name>Address3-Anti-locking-brake-system</address_space_name>
+   <capacity>2</capacity>
+   <deadline>20</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>20</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_72">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t18</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node4-Wheel-angle-sensor</cpu_name>
+   <address_space_name>Address4-Wheel-angle-sensor</address_space_name>
+   <capacity>4</capacity>
+   <deadline>14</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>14</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_73">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t19</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node4-Wheel-angle-sensor</cpu_name>
+   <address_space_name>Address4-Wheel-angle-sensor</address_space_name>
+   <capacity>4</capacity>
+   <deadline>20</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>20</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_76">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t20</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node5-Suspension-controller</cpu_name>
+   <address_space_name>Address5-Suspension-controller</address_space_name>
+   <capacity>1</capacity>
+   <deadline>20</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>20</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_77">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t21</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node5-Suspension-controller</cpu_name>
+   <address_space_name>Address5-Suspension-controller</address_space_name>
+   <capacity>1</capacity>
+   <deadline>20</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>20</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_78">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t22</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node5-Suspension-controller</cpu_name>
+   <address_space_name>Address5-Suspension-controller</address_space_name>
+   <capacity>1</capacity>
+   <deadline>10</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>10</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_79">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t23</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node5-Suspension-controller</cpu_name>
+   <address_space_name>Address5-Suspension-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>14</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>14</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_80">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t24</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node5-Suspension-controller</cpu_name>
+   <address_space_name>Address5-Suspension-controller</address_space_name>
+   <capacity>2</capacity>
+   <deadline>15</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>15</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_81">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t25</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>50</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>50</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_82">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t26</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>50</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>50</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_83">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t27</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>10</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>10</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_84">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t28</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>100</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>100</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_85">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t29</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>40</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>40</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_86">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t31</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>100</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>100</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
  </tasks>
+ <messages>
+  <periodic_message id="id_119">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m1-01-22</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>10</deadline>
+   <size>130</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>10</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_120">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m1-01-27</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>10</deadline>
+   <size>130</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>10</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_130">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m2-18-05</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>14</deadline>
+   <size>82</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>14</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_129">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m2-18-11</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>14</deadline>
+   <size>82</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>14</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_132">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m2-18-23</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>14</deadline>
+   <size>82</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>14</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_125">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m3-02-16</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>20</deadline>
+   <size>82</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>20</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_126">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m4-08-04</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>15</deadline>
+   <size>73</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>15</period>
+   <jitter>0</jitter>
+  </periodic_message>
+  <periodic_message id="id_128">
+   <object_type>MESSAGE_OBJECT_TYPE</object_type>
+   <name>m5-12-21</name>
+   <message_type>PERIODIC_TYPE</message_type>
+   <preemptive_type>PREEMPTIVE</preemptive_type>
+   <deadline>20</deadline>
+   <size>101</size>
+   <response_time>0</response_time>
+   <communication_time>0</communication_time>
+   <period>20</period>
+   <jitter>0</jitter>
+  </periodic_message>
+ </messages>
+ <dependencies>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_50">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_119">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_50">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_120">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_57">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_126">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_51">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_125">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_62">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_128">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_72">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_129">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_72">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_130">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_72">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_TASK_TO_OBJECT</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_132">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_78">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_119">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_83">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_120">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_54">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_130">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_77">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_128">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_53">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_126">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_66">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_125">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_79">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_132">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+  <dependency>
+   <type_of_dependency>ASYNCHRONOUS_COMMUNICATION_DEPENDENCY</type_of_dependency>
+   <asynchronous_communication_dependent_task ref="id_61">
+   </asynchronous_communication_dependent_task>
+   <asynchronous_communication_orientation>FROM_OBJECT_TO_TASK</asynchronous_communication_orientation>
+   <asynchronous_communication_dependency_object ref="id_129">
+   </asynchronous_communication_dependency_object>
+  </dependency>
+ </dependencies>
 </cheddar>
 
