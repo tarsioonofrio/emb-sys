@@ -8,7 +8,7 @@
     <scheduling_parameters>
      <scheduler_type>RATE_MONOTONIC_PROTOCOL</scheduler_type>
      <quantum>0</quantum>
-     <preemptive_type>NOT_PREEMPTIVE</preemptive_type>
+     <preemptive_type>PREEMPTIVE</preemptive_type>
      <automaton_name>app</automaton_name>
      <capacity>0</capacity>
      <period>0</period>
@@ -772,7 +772,7 @@
    <jitter>0</jitter>
    <every>0</every>
   </periodic_task>
-  <periodic_task id="id_86">
+  <periodic_task id="id_107">
    <object_type>TASK_OBJECT_TYPE</object_type>
    <name>t31</name>
    <task_type>PERIODIC_TYPE</task_type>
@@ -780,6 +780,26 @@
    <address_space_name>Address6-Bodywork</address_space_name>
    <capacity>2</capacity>
    <deadline>100</deadline>
+   <start_time>0</start_time>
+   <priority>1</priority>
+   <blocking_time>0</blocking_time>
+   <policy>SCHED_FIFO</policy>
+   <text_memory_size>0</text_memory_size>
+   <stack_memory_size>0</stack_memory_size>
+   <criticality>0</criticality>
+   <context_switch_overhead>0</context_switch_overhead>
+   <period>100</period>
+   <jitter>0</jitter>
+   <every>0</every>
+  </periodic_task>
+  <periodic_task id="id_105">
+   <object_type>TASK_OBJECT_TYPE</object_type>
+   <name>t30</name>
+   <task_type>PERIODIC_TYPE</task_type>
+   <cpu_name>Node6-Bodywork</cpu_name>
+   <address_space_name>Address6-Bodywork</address_space_name>
+   <capacity>2</capacity>
+   <deadline>20</deadline>
    <start_time>0</start_time>
    <priority>1</priority>
    <blocking_time>0</blocking_time>
